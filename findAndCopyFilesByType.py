@@ -11,8 +11,19 @@ extension = input()
 # let user choose the location, where they want to search for files:
 print('Enter the location, where you want to search for files:')
 location = input()
+while os.path.isdir(location) == False:
+	print('Directory ' + location + ' does not exist or is not valid.')
+	print('Please, reenter correct directory:')
+	location = input()	
+
 # set a path, where found files will be copied to.
-destination = 'C:\\FilesFound'
+print('Enter the location, where you want to copy found files:')
+destination = input()
+while os.path.isdir(destination) == False:
+	print('Directory ' + destination + ' does not exist or is not valid.')
+	print('Please, reenter correct directory:')
+	destination = input()
+
 # walk the folder tree.
 for foldername, subfolders, filenames in os.walk(location):
 	for filename in filenames:
