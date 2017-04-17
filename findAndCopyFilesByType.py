@@ -8,7 +8,9 @@ import os, shutil
 print('Enter extension type you want to search for:')
 extension = input()
 # set a path, where files with certain extensions will be searched for.
-location = 'C:\\Users\\rudol\\Dropbox\\HUMF'
+# let user choose the location, where they want to search for files:
+print('Enter the location, where you want to search for files:')
+location = input()
 # set a path, where found files will be copied to.
 destination = 'C:\\FilesFound'
 # walk the folder tree.
