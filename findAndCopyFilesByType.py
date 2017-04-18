@@ -3,10 +3,18 @@
 # a certain file extension (such as .pdf or .jpg). Copy these files from whatever
 # location they are in to a new folder.
 
-import os, shutil
+import os, shutil, re
 # let user choose what extension they want to search for:
-print('Enter extension type you want to search for:')
+extensionRegEx = re.compile(r'^\.\w+$')
+print('Enter extension type you want to search for (start with the dot):')
 extension = input()
+mo = extensionRegEx.search(extension)
+while mo == None:
+	print('Entered extension \'' + extension + '\' is not valid.')
+	print('Please, reenter the extension:')
+	extension = input()
+	mo = extensionRegEx.search(extension)
+print ('Program will search for all files with \'' + extension + ' \' extension.')
 # set a path, where files with certain extensions will be searched for.
 # let user choose the location, where they want to search for files:
 print('Enter the location, where you want to search for files:')
